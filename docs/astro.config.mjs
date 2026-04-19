@@ -1,3 +1,4 @@
+import cloudflare from "@astrojs/cloudflare";
 import starlight from "@astrojs/starlight";
 // @ts-check
 import { defineConfig } from "astro/config";
@@ -18,11 +19,6 @@ export default defineConfig({
 					icon: "github",
 					label: "GitHub",
 					href: "https://github.com/emdash-cms/emdash",
-				},
-				{
-					icon: "discord",
-					label: "Discord",
-					href: "https://astro.build/chat",
 				},
 			],
 			editLink: {
@@ -100,7 +96,10 @@ export default defineConfig({
 				{
 					label: "Contributing",
 					collapsed: true,
-					items: [{ label: "Contributor Guide", slug: "contributing" }],
+					items: [
+						{ label: "Contributor Guide", slug: "contributing" },
+						{ label: "Translating EmDash", slug: "contributing/translating" },
+					],
 				},
 
 				{
@@ -167,4 +166,6 @@ export default defineConfig({
 			],
 		}),
 	],
+
+	adapter: cloudflare(),
 });
